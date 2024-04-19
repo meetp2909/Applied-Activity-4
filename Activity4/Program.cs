@@ -40,3 +40,64 @@ class Program
     }
 }
 }
+
+
+
+    // Test Case for Search Bar
+
+    using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+namespace HilokalSearchTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          
+            IWebDriver driver = new ChromeDriver();
+
+            
+            driver.Navigate().GoToUrl("https://www.hilokal.com/login");
+
+           
+       
+            driver.FindElement(By.Id("username")).SendKeys("aksharvekariya786@gmail.com");
+            driver.FindElement(By.Id("password")).SendKeys("Akshar@786");
+            driver.FindElement(By.Id("loginButton")).Click();
+
+           
+            System.Threading.Thread.Sleep(2000);
+
+            
+            IWebElement searchBar = driver.FindElement(By.Id("searchInput"));
+
+            searchBar.Clear();
+
+           
+            searchBar.SendKeys("Cultural Exchange");
+
+        
+            searchBar.SendKeys(Keys.Enter);
+
+           
+            System.Threading.Thread.Sleep(3000);
+
+          
+            IWebElement searchResults = driver.FindElement(By.Id("searchResults"));
+            if (searchResults.Displayed)
+            {
+                Console.WriteLine("Search test passed: Search results displayed.");
+            }
+            else
+            {
+                Console.WriteLine("Search test failed: Search results not displayed.");
+            }
+
+           
+            driver.Quit();
+        }
+    }
+}
+
