@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+﻿﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -11,23 +11,23 @@ class Program
 {
     static void Main()
     {
-        IWebDriver driver = new ChromeDriver(); // You need to have Chrome WebDriver installed and in PATH
+        IWebDriver driver = new ChromeDriver(); 
 
-        driver.Navigate().GoToUrl("https://example.com"); // Replace "https://example.com" with the actual URL of the Hilokal mobile application
+        driver.Navigate().GoToUrl("https://example.com"); 
 
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         IWebElement loginButton = wait.Until(driver => driver.FindElement(By.XPath("//button[text()='Login']")));
         loginButton.Click();
      
       IWebElement usernameField = wait.Until(driver => driver.FindElement(By.Id("username")));
-        usernameField.SendKeys("your_username"); // Replace "your_username" with the actual username
+        usernameField.SendKeys("your_username"); 
 
        IWebElement passwordField = wait.Until(driver => driver.FindElement(By.Id("password")));
-       passwordField.SendKeys("your_password"); // Replace "your_password" with the actual password
+       passwordField.SendKeys("your_password"); 
        loginButton = wait.Until(driver => driver.FindElement(By.XPath("//button[text()='Login']")));
        loginButton.Click();
 
-        wait.Until(driver => driver.Url.Contains("home")); // Assuming the URL changes to include "home" upon successful login
+        wait.Until(driver => driver.Url.Contains("home")); 
          if (driver.Url.Contains("home"))
         {
             Console.WriteLine("Login successful!");
