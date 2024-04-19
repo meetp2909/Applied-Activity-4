@@ -13,16 +13,16 @@ class Program
     {
         IWebDriver driver = new ChromeDriver(); 
 
-        driver.Navigate().GoToUrl("https://example.com"); 
+        driver.Navigate().GoToUrl("https://www.hilokal.com/en"); 
 
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         IWebElement loginButton = wait.Until(driver => driver.FindElement(By.XPath("//button[text()='Login']")));
         loginButton.Click();
      
-      IWebElement usernameField = wait.Until(driver => driver.FindElement(By.Id("username")));
+      IWebElement usernameField = wait.Until(driver => driver.FindElement(By.Id("aksharvekariya786@gmail.com")));
         usernameField.SendKeys("your_username"); 
 
-       IWebElement passwordField = wait.Until(driver => driver.FindElement(By.Id("password")));
+       IWebElement passwordField = wait.Until(driver => driver.FindElement(By.Id("Akshar@786")));
        passwordField.SendKeys("your_password"); 
        loginButton = wait.Until(driver => driver.FindElement(By.XPath("//button[text()='Login']")));
        loginButton.Click();
